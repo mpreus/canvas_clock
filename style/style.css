@@ -1,0 +1,42 @@
+html, body {
+	box-sizing: border-box;
+	font-size: 20px;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	background-color: #451111;
+}
+
+h1 {
+	color: #fff;
+	font-size: 2.5rem;
+	line-height: 4rem;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#canvasContainer {
+	margin: 0 auto;
+	width: 40rem;
+}
+
+canvas {
+	background-color: #451111;
+	height: 20rem;
+	width: 40rem;
+}
+
+footer {
+	background-color: #451111;
+	margin-top: 1.4rem;
+	padding: 0;
+}
+
+footer > div {
+	color: #fff;
+	font-size: .8rem;
+	line-height: 1.2rem;
+	text-align: center;
+}
