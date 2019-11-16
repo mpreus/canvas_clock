@@ -12,8 +12,8 @@ function init() {
 	/* wielkość koła tarczy nieco mniejsza od całości */
 	radius = radius * 0.90;
 
-
-	drawClock();
+/* uruchomienie funkcji w interwale 1 sekundy rysuje wciąż nową godzinę, a właściwie sekundę */
+	setInterval(drawClock, 1000);
 
 	/* funkcja wywołująca */
 	function drawClock() {
@@ -71,7 +71,7 @@ function init() {
 
 	}
 
-	/* funkcja definiująca położenie wskazówek zegara */
+	/* funkcja pobierająca bieżący czas i definiująca położenie wskazówek zegara */
 	function drawTime(context, radius) {
 		let now = new Date(); 				/* nowa instancja obiektu bieżącego czasu */
   		let hour = now.getHours(); 			/* bieżąca godzina */
