@@ -15,14 +15,14 @@ function init() {
 /* uruchomienie funkcji w interwale 1 sekundy rysuje wciąż nową godzinę, a właściwie sekundę */
 	setInterval(drawClock, 1000);
 
-	/* funkcja wywołująca */
+/* funkcja wywołująca trzy pozostałe */
 	function drawClock() {
 		drawFace(context, radius); /* tarcza zegara */
 		drawNumbers(context, radius); /* liczby na tarczy zagara */
 		drawTime(context, radius); /* położenie wskazówek zegara */
 	}
 
-	/* funkcja rysująca tarczę zegara */
+/* funkcja rysująca tarczę zegara */
 	function drawFace(context, radius) {
 		let grad;
 
@@ -47,7 +47,7 @@ function init() {
   		context.fill();
 	}
 
-	/* funkcja rysująca liczby na tarczy zegara */
+/* funkcja rysująca liczby na tarczy zegara */
 	function drawNumbers(context, radius) {
 		let numAngle;
   		let clockNumber;
@@ -71,7 +71,7 @@ function init() {
 
 	}
 
-	/* funkcja pobierająca bieżący czas i definiująca położenie wskazówek zegara */
+/* funkcja pobierająca bieżący czas i definiująca położenie wskazówek zegara */
 	function drawTime(context, radius) {
 		let now = new Date(); 				/* nowa instancja obiektu bieżącego czasu */
   		let hour = now.getHours(); 			/* bieżąca godzina */
@@ -90,7 +90,7 @@ function init() {
   		drawHand(context, second, radius * 0.85, radius * 0.02);
 	}
 
-	/* funkcja rysująca wskazówki zegara */
+/* funkcja rysująca wskazówki zegara */
 	function drawHand(context, pos, length, width) {
   		context.beginPath();
   		context.lineWidth = width;
@@ -103,6 +103,52 @@ function init() {
 	}
 
 
+/* zmień zegar na cyfrowy */
+	let changeButton = document.getElementById("changeButton");
+	changeButton.addEventListener("click", changeTheClock);
+	
+	function changeTheClock() {
+		let canvasContainer = document.getElementById("canvasContainer");
+		let digitalClock = document.getElementById("digitalClock");
+		let titleBanner = document.getElementById("titleBanner");
+
+	/* jeśli w canvas nie ma takiej klasy, dodaj ją i wyświetl zegar cyfrowy */
+		if ( !canvasContainer.classList.contains("makeInvisible") ) {
+			canvasContainer.classList.add("makeInvisible");
+			digitalClock.classList.add("makeVisible");
+			digitalClock.style.fontSize = "10vw";
+			digitalClock.style.marginLeft = "31vw";
+		
+		/* zmień tekst na tytule */
+			titleBanner.innerText = "...or as digital clock";
+		/* wyświetl zegar cyfrowy */
+			let myTimeVariable = setInterval(myTimer, 1000);
+			function myTimer() {
+ 				let currentTime = new Date();
+  				let myCurrentTimeDisplayed = currentTime.toLocaleTimeString();
+  				digitalClock.innerHTML = myCurrentTimeDisplayed;
+			}
+		/* zmień tekst na przycisku */
+			changeButton.innerText = "RESTORE CLASSIC CLOCK";
+		}
+	/* jeśli w canvas jest taka klasa, usuń ją i wyświetl zegar na canvas */
+		else if ( canvasContainer.classList.contains("makeInvisible") ) {
+			canvasContainer.classList.remove("makeInvisible");
+			digitalClock.classList.remove("makeVisible");
+			digitalClock.classList.add("makeInvisible");
+
+		/* zmień tekst na tytule */
+			titleBanner.innerText = "clock build as canvas element";
+		/* zmień tekst na przycisku */
+			changeButton.innerText = "CHANGE THE CLOCK FOR DIGITAL";
+			clearInterval("myTimeVariable");
+		}	
+	}
 
 
 }
+
+
+
+
+

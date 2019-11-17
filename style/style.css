@@ -1,5 +1,6 @@
 html, body {
 	box-sizing: border-box;
+	font-family: Arial, sans-serif;;
 	font-size: 20px;
 	margin: 0;
 	padding: 0;
@@ -28,10 +29,37 @@ canvas {
 	width: 40rem;
 }
 
+.makeInvisible {
+	display: none;
+}
+
+.makeVisible {
+	display: block;
+}
+
+button {
+	background: #fff;
+	border-radius: .2rem;
+	box-shadow: .2rem .2rem .2rem #ddd;
+	font-size: .8rem;
+	font-weight: bold;
+	margin-left: calc(50% - 8rem);
+	margin-top: 1rem;
+	padding: .5rem 1rem;
+	text-transform: uppercase;
+	width: 16rem;
+}
+
+button:hover {
+	background: #451111;
+	box-shadow: .2rem .2rem .2rem #666;
+	color: #fff;
+}
+
 footer {
 	background-color: #451111;
 	margin-top: 1.4rem;
-	padding: 0;
+	padding: 0.2rem 0;
 }
 
 footer > div {
