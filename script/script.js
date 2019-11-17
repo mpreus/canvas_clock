@@ -118,6 +118,7 @@ function init() {
 			digitalClock.classList.add("makeVisible");
 			digitalClock.style.fontSize = "10vw";
 			digitalClock.style.marginLeft = "31vw";
+			digitalClock.style.color = "#451111";
 		
 		/* zmień tekst na tytule */
 			titleBanner.innerText = "...or as digital clock";
@@ -144,7 +145,6 @@ function init() {
 			clearInterval("myTimeVariable");
 		}	
 	}
-
 
 }
 
